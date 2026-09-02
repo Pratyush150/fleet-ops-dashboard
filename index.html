@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Fleet operations dashboard for drones and ground robots, running against a built-in telemetry simulator."
+    />
+    <title>Fleet Ops Dashboard</title>
+    <script>
+      // Apply the stored theme before first paint so a light-theme user does
+      // not get a dark flash. Storage throws outright in some privacy modes.
+      try {
+        var stored = localStorage.getItem('fleet-ops:theme');
+        if (stored === 'light' || stored === 'dark') {
+          document.documentElement.setAttribute('data-theme', stored);
+        }
+      } catch (err) {
+        /* keep the default dark theme */
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

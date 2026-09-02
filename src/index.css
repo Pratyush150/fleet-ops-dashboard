@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Colour tokens.
+ *
+ * Dark is the default because a ground station is usually run in a dim room or
+ * outdoors under a hood. Both palettes are defined on :root / [data-theme] so
+ * neither theme depends on a media query, and the toggle is one attribute.
+ */
+:root,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg-app: #0b0f14;
+  --bg-panel: #121821;
+  --bg-raised: #1a222d;
+  --bg-sunken: #080b0f;
+  --border-default: #26313f;
+  --border-strong: #3a4859;
+  --text-primary: #e8eef6;
+  --text-muted: #a3b1c2;
+  --text-faint: #738396;
+  --accent: #4da3ff;
+  --accent-soft: #16324f;
+  --status-nominal: #37d399;
+  --status-warning: #f0b23a;
+  --status-critical: #ff6b6b;
+  --status-offline: #8592a6;
+  --status-info: #6fb3ff;
+  --grid-line: #1b2532;
+  --trail: #4da3ff;
+  --focus-ring: #7cc4ff;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg-app: #eef1f6;
+  --bg-panel: #ffffff;
+  --bg-raised: #f5f7fb;
+  --bg-sunken: #e3e8f0;
+  --border-default: #ccd4e0;
+  --border-strong: #9aa8bd;
+  --text-primary: #10161f;
+  --text-muted: #45536a;
+  --text-faint: #5d6b82;
+  --accent: #0b62c4;
+  --accent-soft: #d7e6fb;
+  --status-nominal: #0a7a52;
+  --status-warning: #8a5a00;
+  --status-critical: #b3261e;
+  --status-offline: #55617a;
+  --status-info: #0b62c4;
+  --grid-line: #d9e0ea;
+  --trail: #0b62c4;
+  --focus-ring: #0b62c4;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-app);
+  color: var(--text-primary);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* Scoped scrollbar styling; falls back to the platform default elsewhere. */
+.scroll-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+.scroll-thin::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.scroll-thin::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
