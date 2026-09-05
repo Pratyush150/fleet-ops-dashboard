@@ -9,6 +9,17 @@ A browser ground-station dashboard for watching a mixed fleet of drones and grou
 ![Vitest](https://img.shields.io/badge/tests-Vitest-6da55f)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue)
 
+## Screenshots
+
+Both are the running app on the built-in simulator, seed `ops-2026`. Nothing is mocked; the
+telemetry, the fault, and the alerts were all produced by the simulation in the page.
+
+![Fleet dashboard with VT-111 selected: map, telemetry panel showing a geofence breach, fleet table and alerts](docs/screenshots/vehicle-selected.png)
+VT-111 selected four minutes into the run. It has crossed the fence line at 626, -501 m, so its marker turns red on the map, its geofence field reads BREACH, and it sorts to the top of the fleet table as the one critical vehicle.
+
+![Alert feed showing a geofence breach, an unresponsive vehicle, and two cleared alerts](docs/screenshots/alert-feed.png)
+The alert feed with the history filter on. Two alerts are live and two have cleared and stayed in the log. Each rule has separate enter and exit thresholds and a dwell timer, so a signal sitting on a limit produces one entry rather than a hundred.
+
 ## The problem
 
 Once you have more than two or three vehicles, the ground station stops being a
